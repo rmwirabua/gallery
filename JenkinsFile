@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+         stage('git clone'){
+             steps{
+                 git 'https://github.com/rmwirabua/gallery.git'
+             }
+         }
+         stage('Install dependecies'){
+             steps{
+                 sh 'npm install'
+             }
+         }
+         stage('deploy to heroku'){
+             steps{
+                 sh 'git push https://git.heroku.com/weekone-devops.git'
+             }
+         }
+    }
+}
