@@ -16,5 +16,9 @@ pipeline{
                  sh 'git push https://git.heroku.com/weekone-devops.git'
              }
          }
+        stage('Run Test') {
+             steps {
+                 sh 'npm test'
+            }
     }
 }
