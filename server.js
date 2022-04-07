@@ -12,6 +12,8 @@ let image = require('./routes/image');
 const app = express();
 
 // connecting the database
+// let MONGODB_URI = 'mongodb+srv://richardgitonga:1Quality@cluster0.igm2h.mongodb.net/darkroom?retryWrites=true&w=majority';
+let dbName = 'darkroom';
 
 const MONGODB_URI = process.env.MONGODB_URI || config.mongoURI[app.settings.env]
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
@@ -47,7 +49,7 @@ app.use('/image', image);
 
 
  
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT,() =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
 });
